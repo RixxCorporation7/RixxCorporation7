@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RixxCorporation7</title>  <!-- SEO & Social -->  <meta name="description" content="RixxCorporation7 – Business insights, political analysis, and DIY science projects.">
+  <meta name="keywords" content="business, politics, science, consultancy">  <!-- Favicon -->  <link rel="icon" href="logo.png" type="image/png">  <!-- Fonts & Icons -->  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">  <!-- AOS -->  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  <style>
+    :root{
+      --primary:#00aced;
+      --secondary:#28a745; /* changed to green for accent */
+      --dark:#0d0d0d;
+      --light:#fafafa;
+      --text-dark:#0d0d0d;
+      --text-light:#f5f5f5;
+      --radius:12px;
+      --shadow:rgba(0,0,0,0.7);
+      /* default theme dark */
+      --bg:var(--dark);
+      --fg:var(--text-light);
+      --card-bg:rgba(255,255,255,0.03);
+    }
+    [data-theme="light"] {
+      --bg:var(--light);
+      --fg:var(--text-dark);
+      --shadow:rgba(0,0,0,0.1);
+      --card-bg:rgba(0,0,0,0.03);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+    body{background:var(--bg);color:var(--fg);overflow-x:hidden;scroll-behavior:smooth}
+    a{text-decoration:none;color:var(--fg)}
+    img,iframe{display:block;max-width:100%}
+
+    /* Navbar */
+    nav{position:fixed;top:0;width:100%;z-index:1000;backdrop-filter:blur(8px);background:rgba(13,13,13,0.6);display:flex;align-items:center;justify-content:space-between;padding:15px 10%}
+    .logo{display:flex;align-items:center}
+    .logo img{width:50px;border-radius:50%;margin-right:10px}
+    .logo span{font-size:1.2rem;font-weight:600;color:var(--primary)}
+    nav ul{list-style:none;display:flex;gap:20px}
+    nav a{font-weight:500;transition:color .3s}
+    nav a:hover{color:var(--primary)}
+    #mobileControls{display:none;gap:15px;align-items:center}
+    #menuToggle,#themeToggle{background:none;border:none;color:var(--fg);font-size:1.5rem;cursor:pointer}
+    @media(max-width:768px){
+      nav ul{position:fixed;top:60px;right:0;background:var(--bg);flex-direction:column;width:200px;padding:20px;transform:translateX(100%);transition:transform .3s}
+      nav ul.open{transform:translateX(0)}
+      #mobileControls{display:flex}
+      #menuToggle{display:block}
+      nav > .logo span{display:none}
+    }
+
+    /* Preloader */
+    #preloader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999}
+    #preloader::after{content:'';width:40px;height:40px;border:4px solid #fff;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Hero */
+    header{height:80vh;display:flex;align-items:center;justify-content:center;background:url('hero-bg-custom.jpg')center/cover no-repeat;position:relative;text-align:center;margin-top:60px}
+    header::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.5)}
+    .hero-content{position:relative;z-index:1;max-width:800px;padding:20px}
+    .hero-content h1{font-size:3rem;margin-bottom:10px;color:var(--primary);animation:fadeIn 1.2s}
+    .hero-content h2{font-size:2rem;margin-bottom:20px;background:linear-gradient(45deg,var(--secondary),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-content p{font-size:1.1rem;margin-bottom:25px;opacity:.9;animation:fadeInUp 1.2s}
+    .btn-primary{display:inline-block;padding:12px 25px;background:var(--primary);color:var(--text-light);border-radius:var(--radius);font-weight:700;transition:background .3s,transform .3s}
+    .btn-primary:hover{background:var(--secondary);transform:translateY(-2px)}
+
+    /* Section Titles */
+    .section-title{font-size:2rem;text-align:center;margin-bottom:30px;color:var(--primary)}
+    .section-title::after{content:'\f121';font-family:'Font Awesome 6 Free';font-weight:900;display:block;margin:10px auto;color:var(--secondary)}
+
+    /* Cards */
+    .card-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+    .card{background:var(--card-bg);backdrop-filter:blur(6px);border-radius:var(--radius);padding:20px;box-shadow:0 6px 18px var(--shadow);transition:transform .3s,box-shadow .3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 10px 30px var(--shadow)}
+    .card h3{margin-bottom:10px;font-size:1.3rem;color:var(--secondary)}
+    .card p{line-height:1.5;color:var(--fg)}
+    .card .btn-secondary{display:inline-block;padding:8px 16px;background:var(--secondary);color:var(--text-light);border-radius:var(--radius);margin-top:10px;transition:background .3s}
+    .card .btn-secondary:hover{background:var(--primary)}
+
+    /* Blog Filter */
+    #blogFilters{display:flex;justify-content:center;gap:10px;margin-bottom:20px}
+    #blogFilters button{padding:6px 14px;border:none;background:var(--card-bg);color:var(--fg);border-radius:var(--radius);cursor:pointer;transition:background .3s}
+    #blogFilters button.active,#blogFilters button:hover{background:var(--primary);color:var(--text-light)}
+
+    /* Back-to-Top & Music */
+    #backToTop,#musicControl{position:fixed;border:none;border-radius:50%;cursor:pointer;box-shadow:0 6px 18px var(--shadow);transition:transform .3s}
+    #backToTop{bottom:80px;right:20px;padding:12px;font-size:1.2rem;color:var(--text-light);background:var(--primary);display:none}
+    #musicControl{bottom:20px;right:20px;padding:12px;font-size:1.2rem;color:var(--text-dark);background:var(--secondary)}
+    #backToTop:hover,#musicControl:hover{transform:translateY(-3px)}
+
+    /* Animations */
+    @keyframes fadeIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+  </style></head>
+<body data-theme="dark">
+  <div id="preloader"></div>
+  <nav>
+    <div class="logo"><img src="logo.png" alt="Logo"><span>RixxCorporation7</span></div>
+    <div id="mobileControls">
+      <button id="themeToggle"><i class="fas fa-moon"></i></button>
+      <button id="menuToggle"><i class="fas fa-bars"></i></button>
+    </div>
+    <ul id="navMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#social">Social</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#downloads">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header data-aos="fade-up">
+    <div class="hero-content">
+      <h1>RixxCorporation7</h1>
+      <h2>Business Insights • Political Clarity • Science Projects</h2>
+      <p>Welcome to the hub of knowledge and innovation.</p>
+      <a href="#services" class="btn-primary">Explore Services</a>
+    </div>
+  </header>
+  <section id="social" data-aos="fade-up">
+    <h2 class="section-title">Latest on YouTube & Instagram</h2>
+    <div class="card-container">
+      <div class="card"><h3>YouTube</h3><iframe src="https://www.youtube.com/embed?listType=user_uploads&list=ThePowerLedger" allowfullscreen></iframe></div>
+      <div class="card"><h3>Instagram</h3><iframe src="https://snapwidget.com/embed/123456" scrolling="no" allowtransparency="true"></iframe></div>
+    </div>
+  </section>
+  <section id="blog" data-aos="fade-up">
+    <h2 class="section-title">Latest Blog</h2>
+    <div id="blogFilters">
+      <button data-cat="all" class="active">All</button>
+      <button data-cat="politics">Politics</button>
+      <button data-cat="business">Business</button>
+      <button data-cat="science">Science</button>
+    </div>
+    <div class="card-container">
+      <div class="card" data-cat="politics"><h3>AI in Politics</h3><p>How AI shapes debates.</p><a class="btn-secondary">Read More</a></div>
+      <div class="card" data-cat="science"><h3>DIY Solar Kit</h3><p>Build your own panel.</p><a class="btn-secondary">Read More</a></div>
+    </div>
+  </section>
+  <section id="team" data-aos="fade-up">
+    <h2 class="section-title">Our Team</h2>
+    <div class="card-container">
+      <div class="card"><h3>Rishabh Dubey</h3><p>Founder</p><div><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></div></div>
+    </div>
+  </section>
+  <section id="services" data-aos="fade-up">
+    <h2 class="section-title">Services</h2>
+    <div class="card-container">
+      <div class="card"><h3>YouTube Consultancy</h3><p>End-to-end support.</p></div>
+      <div class="card"><h3>Reports</h3><p>Custom analysis.</p></div>
+      <div class="card"><h3>Social Strategy</h3><p>Grow engagement.</p></div>
+      <div class="card"><h3>DIY Guides</h3><p>Hands-on tutorials.</p></div>
+    </div>
+  </section>
+  <section id="downloads" data-aos="fade-up">
+    <h2 class="section-title">Resources</h2>
+    <div class="card-container">
+      <div class="card"><h3>Stampede Report</h3><a class="btn-primary">Download</a></div>
+      <div class="card"><h3>Solar Guide</h3><a class="btn-primary">Download</a></div>
+      <div class="card"><h3>Media Kit</h3><a class="btn-primary">Download</a></div>
+    </div>
+  </section>
+  <section id="contact" data-aos="fade-up">
+    <h2 class="section-title">Contact</h2>
+    <div class="card-container">
+      <div class="card"><h3>Get in Touch</h3><p>Email: <a href="mailto:electricscienceproject@gmail.com">electricscienceproject@gmail.com</a></p></div>
+      <div class="card"><h3>Follow Us</h3><p><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></p></div>
+    </div>
+  </section>
+  <div id="backToTop"><i class="fas fa-chevron-up"></i></div>
+  <button id="musicControl"><i class="fas fa-music"></i></button>
+  <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-ambient.mp3" loop autoplay></audio>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:800,once:true});
+    window.addEventListener('load',()=>document.getElementById('preloader').style.display='none');
+    document.getElementById('menuToggle').onclick=()=>document.getElementById('navMenu').classList.toggle('open');
+    const themeToggle=document.getElementById('themeToggle');
+    themeToggle.onclick=()=>{const t=document.body.getAttribute('data-theme')==='dark'?'light':'dark';document.body.setAttribute('data-theme',t);themeToggle.innerHTML=t==='dark'?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';};
+    const back=document.getElementById('backToTop');window.onscroll=()=>back.style.display=window.scrollY>300?'block':'none';back.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+    document.querySelectorAll('.counter').forEach(c=>{c.innerText='0';const upd=()=>{const t=+c.getAttribute('data-target'),v=+c.innerText,i=Math.ceil(t/200);if(v<t){c.innerText=v+i;setTimeout(upd,10);}else c.innerText=t;};upd();});
+  </script>
+</body>
+</html
