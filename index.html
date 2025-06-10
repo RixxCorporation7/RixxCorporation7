@@ -2,8 +2,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RixxCorporation7</title>  <!-- SEO & Social -->  <meta name="description" content="RixxCorporation7 – Business insights, political analysis, and DIY science projects.">
+  <title>Rixx Corporation7</title>  <!-- SEO & Social -->  <meta name="description" content="Rixx Corporation7 – Business insights, political analysis, and DIY science projects.">
   <meta name="keywords" content="business, politics, science, consultancy">  <!-- Favicon -->  <link rel="icon" href="logo.png" type="image/png">  <!-- Fonts & Icons -->  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&family=Merriweather&family=Open+Sans&family=Poppins&family=Roboto+Slab&family=Ubuntu&display=swap" rel="stylesheet">
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">  <!-- AOS -->  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">  <style>
     :root{
       --primary:#00aced;
@@ -90,11 +93,140 @@
     /* Animations */
     @keyframes fadeIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-  </style></head>
+  
+    /* Tagline Styling */
+    .hero-content .tagline {
+      font-size:1rem;
+      color:#FFD700;
+      font-family:'Montserrat', sans-serif;
+      font-style:italic;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+  
+/* Hero Section */
+header .hero-content h1 { font-family: 'Bebas Neue', cursive; }
+header .hero-content h2 { font-family: 'Bebas Neue', cursive; }
+header::before { background: linear-gradient(120deg, rgba(0,172,237,0.6), rgba(40,167,69,0.6)); }
+
+/* Social Section */
+#social { background-color: #f4f4f4; padding: 50px 10%; font-family: 'Poppins', sans-serif; }
+#social .card img { border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.3s; }
+#social .card img:hover { transform: scale(1.03); }
+
+/* Blog Section */
+#blog { background-color: #fff9f0; padding: 50px 10%; font-family: 'Merriweather', serif; }
+#blog .card { border-radius: 12px 50px 12px 50px; }
+
+/* Team Section */
+#team { background-color: #0d0d0d; color: #00ffcc; padding: 50px 10%; font-family: 'Lobster', cursive; }
+#team .card { border-radius: 50%; text-align: center; box-shadow: 0 0 15px #00ffcc; }
+
+
+/* Services Section */
+#services {
+  background-color: #ffffff;
+  padding: 50px 10%;
+  font-family: 'Ubuntu', sans-serif;
+}
+#services .card {
+  background-color: #e6f0ff;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+#services .card {
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+  background-color: #e6f7ff;
+}
+
+/* Downloads Section */
+#downloads { background-color: #001f3f; color: #ffffff; padding: 50px 10%; font-family: 'Roboto Slab', serif; }
+#downloads .btn-primary {
+  border: 2px solid #fff;
+  transition: all 0.3s;
+}
+#downloads .btn-primary:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(to right, #f8f9fa 50%, #1a1a1a 50%);
+  color: #333333;
+  padding: 50px 10%;
+  font-family: 'Open Sans', sans-serif;
+}
+#contact .card {
+  border-radius: 16px;
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  color: #000000;
+}
+#contact .card h3 {
+  color: #007BFF;
+}
+#contact i {
+  font-size: 1.5rem;
+  color: #ff9900;
+}
+
+#contact .card { border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+#contact i { font-size: 1.5rem; color: #ffcc00; }
+
+
+#services .card p {
+  color: #333333;
+}
+
+
+/* Blog Section text visibility */
+#blog .card p {
+  color: #333333;
+}
+
+/* Contact Section text visibility */
+#contact .card p {
+  color: #333333;
+}
+
+/* Contact email link color */
+#contact a[href^="mailto"] {
+  color: #007BFF;
+}
+
+
+#contact .card h3 {
+  color: #DAA520; /* premium gold */
+}
+
+#blogFilters button {
+  background-color: #e0e0e0;
+  color: #333;
+}
+#blogFilters button.active,
+#blogFilters button:hover {
+  background-color: #DAA520;
+  color: white;
+}
+
+</style></head>
 <body data-theme="dark">
   <div id="preloader"></div>
   <nav>
-    <div class="logo"><img src="logo.png" alt="Logo"><span>RixxCorporation7</span></div>
+    <div class="logo"><img src="logo.png" alt="Logo"><span>Rixx Corporation7</span></div>
     <div id="mobileControls">
       <button id="themeToggle"><i class="fas fa-moon"></i></button>
       <button id="menuToggle"><i class="fas fa-bars"></i></button>
@@ -111,7 +243,8 @@
   </nav>
   <header data-aos="fade-up">
     <div class="hero-content">
-      <h1>RixxCorporation7</h1>
+      <p class="tagline">Keep Moving Forward</p>
+      <h1>Rixx Corporation7</h1>
       <h2>Business Insights • Political Clarity • Science Projects</h2>
       <p>Welcome to the hub of knowledge and innovation.</p>
       <a href="#services" class="btn-primary">Explore Services</a>
@@ -120,7 +253,14 @@
   <section id="social" data-aos="fade-up">
     <h2 class="section-title">Latest on YouTube & Instagram</h2>
     <div class="card-container">
-      <div class="card"><h3>YouTube</h3><iframe src="https://www.youtube.com/embed?listType=user_uploads&list=ThePowerLedger" allowfullscreen></iframe></div>
+      
+<div class="card">
+  <h3>YouTube</h3>
+  <a href="https://youtu.be/GWvvmPpub_w?si=lVia-3yve1zeQQWB" target="_blank">
+    <img src="file-VfXqtr2ojLWqNFETyh1Nsg" alt="The Power Ledger Channel Thumbnail" />
+  </a>
+</div>
+
       <div class="card"><h3>Instagram</h3><iframe src="https://snapwidget.com/embed/123456" scrolling="no" allowtransparency="true"></iframe></div>
     </div>
   </section>
@@ -137,12 +277,35 @@
       <div class="card" data-cat="science"><h3>DIY Solar Kit</h3><p>Build your own panel.</p><a class="btn-secondary">Read More</a></div>
     </div>
   </section>
-  <section id="team" data-aos="fade-up">
-    <h2 class="section-title">Our Team</h2>
-    <div class="card-container">
-      <div class="card"><h3>Rishabh Dubey</h3><p>Founder</p><div><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></div></div>
+  
+<section id="team" data-aos="fade-up">
+  <h2 class="section-title">Our Team</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Rishabh Dubey</h3>
+      <p>Founder</p>
+      <div>
+        <a href="https://www.instagram.com/rixx_vibes7?igsh=bGdia2RnN2Z5ZGVy" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com/@rixxcorporation7?si=9JDDfWKPn7W6_v0A" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
-  </section>
+    <div class="card">
+      <h3>Rudra Narayan</h3>
+      <p>Co Founder</p>
+      <div>
+        <!-- Add social links if available -->
+      </div>
+    </div>
+    <div class="card">
+      <h3>Kartikey Shukla</h3>
+      <p>Marketing Founder</p>
+      <div>
+        <!-- Add social links if available -->
+      </div>
+    </div>
+  </div>
+</section>
+
   <section id="services" data-aos="fade-up">
     <h2 class="section-title">Services</h2>
     <div class="card-container">
@@ -164,7 +327,7 @@
     <h2 class="section-title">Contact</h2>
     <div class="card-container">
       <div class="card"><h3>Get in Touch</h3><p>Email: <a href="mailto:electricscienceproject@gmail.com">electricscienceproject@gmail.com</a></p></div>
-      <div class="card"><h3>Follow Us</h3><p><a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></p></div>
+      <div class="card"><h3>Follow Us</h3><p><a href="https://www.instagram.com/rixx_vibes7?igsh=bGdia2RnN2Z5ZGVy" target="_blank"><i class="fab fa-instagram"></i></a> <a href="https://youtube.com/@rixxcorporation7?si=9JDDfWKPn7W6_v0A" target="_blank"><i class="fab fa-youtube"></i></a></p></div>
     </div>
   </section>
   <div id="backToTop"><i class="fas fa-chevron-up"></i></div>
