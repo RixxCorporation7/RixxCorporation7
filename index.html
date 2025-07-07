@@ -2,52 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome | Rixx Corporation</title>
-  <!-- SEO: Description for Google Search -->
-  <meta name="description" content="Rixx Corporation – Affordable full-website maker startup, daily thoughts & motivation, political insights, and business analysis. Explore expert articles, team bios, and more." />
-  <!-- Favicon: Rixx Corporation Logo -->
-  <link rel="icon" href="rixx-logo.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RIXX Loader with Spline</title>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.518/build/spline-viewer.js"></script>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      align-items: center;
+      transition: opacity 1s ease;
     }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+
+    #loader.fade-out {
+      opacity: 0;
+      pointer-events: none;
     }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 40px;
+
+    #loader-message {
+      position: absolute;
+      bottom: 60px;
+      font-family: Poppins, sans-serif;
+      font-size: 1.2rem;
+      color: #333;
     }
-    a.button {
-      display: inline-block;
-      padding: 15px 30px;
-      background: #00c6ff;
-      color: white;
-      text-decoration: none;
-      font-size: 1.2em;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-    a.button:hover {
-      background: #0072ff;
+
+    #main-content {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Poppins, sans-serif;
+      font-size: 2rem;
+      background: linear-gradient(to bottom right, #eaeaea, #ffffff);
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Rixx Corporation</h1>
-  <p>Affordable full-website maker startup. Get daily thoughts, motivation, political insights, and business strategies — all in one place.</p>
-  <a href="main.html" class="button">Enter Home Page</a>
+
+  <!-- 🔄 3D Loader Section -->
+  <div id="loader">
+    <spline-viewer url="https://prod.spline.design/FiXPmlLYf21gbDKm/scene.splinecode"></spline-viewer>
+    <div id="loader-message">Loading the premium experience for you...</div>
+  </div>
+
+  <!-- 🌐 Main Page Content -->
+  <div id="main-content">
+    ✅ Welcome to RIXX Corporation!
+  </div>
+
+  <!-- ⚙️ Script to fade out loader -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      loader.classList.add("fade-out");
+      setTimeout(() => loader.remove(), 1200);
+    });
+  </script>
+
 </body>
 </html>
