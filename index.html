@@ -1,71 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RIXX 3D Loader</title>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.518/build/spline-viewer.js"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIXX Loader</title>
+    <!-- Spline Viewer -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 1s ease;
+      }
+      #loader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #loader-message {
+        position: absolute;
+        bottom: 40px;
+        font-size: 1rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <spline-viewer
+        url="https://prod.spline.design/FiXPmlLYf21gbDKm/scene.splinecode"
+        loading-anim
+        style="width: 100%; height: 100%;">
+      </spline-viewer>
+      <div id="loader-message">Loading the premium experience for you...</div>
+    </div>
 
-    #loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 1s ease;
-    }
+    <div id="main" style="display: none; height: 100vh; background: #f3f3f3; display: flex; justify-content: center; align-items: center; font-size: 2rem;">
+      ✅ Welcome to RIXX Corporation!
+    </div>
 
-    #loader.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #loader-message {
-      position: absolute;
-      bottom: 60px;
-      font-family: Poppins, sans-serif;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    #main-content {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Poppins, sans-serif;
-      font-size: 2rem;
-      background: linear-gradient(to bottom right, #eaeaea, #ffffff);
-    }
-  </style>
-</head>
-<body>
-
-  <!-- 🔄 3D Loader Section -->
-  <div id="loader">
-    <spline-viewer url="https://prod.spline.design/FiXPmlLYf21gbDKm/scene.splinecode"></spline-viewer>
-    <div id="loader-message">Loading the premium experience for you...</div>
-  </div>
-
-  <!-- 🌐 Main Page Content -->
-  <div id="main-content">
-    ✅ Welcome to RIXX Corporation!
-  </div>
-
-  <!-- ⚙️ Script to fade out loader -->
-  <script>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
-      loader.classList.add("fade-out");
-      setTimeout(() => loader.remove(), 1200);
-    });
-  </script>
-
-</body>
+    <script>
+      window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        const main = document.getElementById("main");
+        loader.classList.add("fade-out");
+        setTimeout(() => {
+          loader.style.display = "none";
+          main.style.display = "flex";
+        }, 1200);
+      });
+    </script>
+  </body>
 </html>
