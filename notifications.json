@@ -3,18 +3,19 @@
     "id": "1",
     "title": "Welcome",
     "message": "Glad you're here!",
-    "date": "2025-07-13T05:10:00Z"
+    "timestamp": "1752389066"
   },
   {
     "id": "2",
     "title": "Update",
     "message": "New feature live.",
-    "date": "2025-07-12T18:45:00Z"
+    "timestamp": "1752389040"
+
   },
   {
     "id": "3",
     "title": "Branding",
     "message": "Logo enhancements added.",
-    "date": "2025-07-11T09:30:00Z"
+    "timestamp": "1752389026"
   }
 ]
