@@ -1,5 +1,11 @@
 [
   {
+  "title": "✅ JSON Working!",
+  "message": "This test confirms your notification list is loading correctly.",
+  "url": "https://example.com/test",
+  "timestamp": 1720701000000
+  },
+  {
     "title": "🎉 Big Offer Today!",
     "message": "Tap to grab your 50% discount on all items.",
     "url": "https://example.com/offers",
@@ -16,5 +22,5 @@
     "message": "We've launched a new dashboard feature. Check it out.",
     "url": "https://example.com/update",
     "timestamp": 1720700800000
-  }
+  },
 ]
