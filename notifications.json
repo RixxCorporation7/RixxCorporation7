@@ -1,27 +1,20 @@
 [
   {
-    "id": "4",
-    "title": "Logo",
-    "message": "download",
-    "timestamp": "1752389099",
-   },
-  {
-    "id": "1",
-    "title": "Welcome",
-    "message": "Glad you're here!",
-    "timestamp": "1752389066"
+    "title": "🎉 Big Offer Today!",
+    "message": "Tap to grab your 50% discount on all items.",
+    "url": "https://example.com/offers",
+    "timestamp": 1720700400000
   },
   {
-    "id": "2",
-    "title": "Update",
-    "message": "New feature live.",
-    "timestamp": "1752389040"
-
+    "title": "🔋 Free Recharge",
+    "message": "Open the app now to claim your free ₹10 recharge!",
+    "url": "https://example.com/recharge",
+    "timestamp": 1720700600000
   },
   {
-    "id": "3",
-    "title": "Branding",
-    "message": "Logo enhancements added.",
-    "timestamp": "1752389026"
-  },
+    "title": "📢 New Feature Update",
+    "message": "We've launched a new dashboard feature. Check it out.",
+    "url": "https://example.com/update",
+    "timestamp": 1720700800000
+  }
 ]
